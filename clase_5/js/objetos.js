@@ -42,29 +42,40 @@ agenda.push(contacto, contacto1, contacto2);
 // console.log(contacto1.telefono_laboral);
 // console.log(contacto1);
 // contacto1.telefono_laboral = "+798959595"
-// contacto1.email_trabajo = "correocorpo@mail.com"
+contacto1.email_trabajo = "correocorpo@mail.com"
+contacto1.email_trabajo = "correonuevazalanda@mail.com"
 // console.log(contacto1);
 // contacto2.hobbies.push("Bailar")
 // contacto2.hobbies[1]= "coser a mano"
 // console.log(contacto2);
 
 //  FUNCION CONSTRUCTORA
-function Producto(nombre, precio, stock = 0) {
+function Producto(nombre, precio, stock) {
   this.nombre = nombre;
   this.precio = parseFloat(precio);
   this.stock = parseInt(stock);
 }
 
-
-const producto1= new Producto("harina", "1234", "5")
-const producto2= new Producto("mate", "4356", "10")
-const producto3= new Producto("cafe", "23000")
+const producto1 = new Producto("harina", "1234", "5");
+const producto2 = new Producto("mate", "4356", "10");
+const producto3 = new Producto("cafe", "23000",12);
 
 console.log(producto1);
 console.log(producto2);
-producto3.presentacion="1/4"
+producto3.presentacion = "1/4";
 console.log(producto3);
 
+// prompt("Hiola mundo")
+
+let mensaje= "soy una cadena de caracteres"
+console.log(mensaje);
+console.log(mensaje.toUpperCase());
+console.log(mensaje.toLowerCase());
+console.log(mensaje.length);
 
 
-// Creen un programa que le pregunte al ususrio cuantos quiere agregar y agregar esos productos a un arrasy almacen pinta por consola con console.table
+function saludar(){
+  console.log("Hola");
+  
+}
+saludar()
