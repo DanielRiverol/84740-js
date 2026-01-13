@@ -7,7 +7,6 @@ const productos = [
   { id: 6, nombre: "fideo", precio: 124 },
   { id: 7, nombre: "fideo", precio: 160 },
   { id: 8, nombre: "arroz", precio: 500 },
-  { id: 8, nombre: "arroz", precio: 500 },
   
 ];
 const personas = [
@@ -31,28 +30,73 @@ const personas = [
   "German",
 ];
 // acceder al DOM
-const titulo_principal = document.getElementById('titulo')
+const titulo_principal = document.getElementById("titulo");
 titulo_principal.innerText = "Estamos trabajando con el DOM desde Js";
 // titulo_principal.innerText = "<span>Clase 7</span>";
 // titulo_principal.textContent = "Esto es desde un textContent";
 
 // titulo_principal.innerHTML="<span>Clase 7</span>"
-console.log(titulo_principal.innerText);
+// console.log(titulo_principal.innerText);
 
-const subtitulos = document.getElementsByTagName('h2')
-console.log(subtitulos[0].innerHTML);
-console.log(subtitulos[1].innerHTML);
-console.log(subtitulos[2].innerHTML);
+const subtitulos = document.getElementsByTagName("h2");
+// console.log(subtitulos[0].innerHTML);
+// console.log(subtitulos[1].innerHTML);
+// console.log(subtitulos[2].innerHTML);
 
 // listado de paises
-const paises = document.getElementsByClassName('pais')
+const paises = document.getElementsByClassName("pais");
 
-console.log(paises);
-let pais = "PARAGUAY"
-paises[0].innerHTML=pais
+// console.log(paises);
+let pais = "PARAGUAY";
+paises[0].innerHTML = pais;
 for (const pais of paises) {
   // pais.style.color = "green";
   // pais.style.backgroundColor = "blue";
-  console.log(pais.innerText);
-  
+  // console.log(pais.innerText);
+}
+
+const contenedor = document.getElementById("contenedor");
+// console.log(contenedor);
+
+// crear elelmtos
+
+const mensaje = document.createElement("p");
+mensaje.innerText = "Este es un mensaje creado desde JS";
+contenedor.append(mensaje);
+// document.body.append(mensaje)
+
+const listaAlumnos = document.getElementById("nombres");
+personas.push("Fiamma", "Martin");
+for (const nombre of personas) {
+  const li = document.createElement("li");
+  li.innerHTML = nombre;
+
+  listaAlumnos.append(li);
+}
+
+// titulo_principal.innerText = prompt()
+
+const producto = {
+  nombre: "Papas",
+  precio: 2300,
+};
+
+let concatenado =
+  "Producto: " + producto.nombre + ", precio: $" + producto.precio;
+console.log(concatenado);
+// interpolacion de variables
+const template = `Producto: ${producto.nombre}, precio: $ ${producto.precio}`;
+// contenedor.innerHTML = concatenado
+contenedor.innerHTML = template;
+
+const listaProd = document.getElementById("productos");
+
+for (const producto of productos) {
+  const li = document.createElement("li");
+  li.innerHTML = ` <div class="card">
+      <h3>${producto.nombre}</h3>
+      <p>$${producto.precio}</p>
+    </div>`;
+
+    listaProd.append(li)
 }
