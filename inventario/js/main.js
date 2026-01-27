@@ -7,10 +7,16 @@ const inputNombre = document.querySelector("#nombre"),
   contenedor = document.querySelector("#contenedor");
 
 const productos = [];
-const talles = ["xs", "s", "m", "xl", "xxl"];
+const talles = ["xs", "s", "m", "xl", "xxl", "2xl"];
 
 //cargar opciones en select
+for (const talle of talles) {
+  const option = document.createElement("option");
+  option.value = talle;
+  option.innerText = talle;
 
+  inputTalle.append(option);
+}
 
 //constructor Producto
 class Producto {
@@ -20,7 +26,6 @@ class Producto {
     this.descripcion = descripcion;
     this.precio = precio;
     this.talle = talle;
-
     this.img = img;
   }
 }
@@ -31,10 +36,9 @@ function guardarProducto(producto) {
 
 //funcion crearHtml
 function crearHtml() {
-  contenedor.innerHTML = ""; 
+  contenedor.innerHTML = "";
 
   productos.forEach((prod) => {
-  
     const col = document.createElement("div");
     col.className = "col s12 m6 l4";
 
@@ -55,10 +59,22 @@ function crearHtml() {
       </div>
     `;
 
-   
     contenedor.append(col);
   });
 }
 
 //Evento para guardar
-
+btnGuardar.addEventListener("click", (e) => {
+  e.preventDefault();
+  const nuevoProducto = new Producto(
+    inputNombre.value,
+    inputDescripcion.value,
+    inputPrecio.value,
+    inputTalle.value,
+    inputImg.value,
+  );
+  // productos.push(nuevoProducto)
+  guardarProducto(nuevoProducto);
+  crearHtml();
+  document.getElementById("form-ingreso").reset();
+});
