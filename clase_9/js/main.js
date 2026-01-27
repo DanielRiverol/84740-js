@@ -133,10 +133,18 @@ const pedirServicios = (arr) => {
     }, 3000);
   });
 };
-pedirServicios(false)
-  .then((res) => {
-    renderServicios(res);
-  })
-  .catch((error) => {
-    contenedor.innerHTML = error;
+// pedirServicios(false)
+//   .then((res) => {
+//     renderServicios(res);
+//   })
+//   .catch((error) => {
+//     contenedor.innerHTML = error;
+//   });
+
+// fetch
+fetch("https://api.npoint.io/5f4b004b70542a5efb70")
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+    renderServicios(data);
   });
